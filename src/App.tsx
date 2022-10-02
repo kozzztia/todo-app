@@ -2,9 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import './App.css';
 import {todoType} from "./types/type";
 import {createId} from "./support/support";
-
-
-
+import TodoList from "./components/TodoList";
 
 const  App:FC = () => {
 
@@ -35,16 +33,10 @@ const  App:FC = () => {
                     add
                 </button>
             </form>
-
-            <ul className="todoList">
-                {
-                    todos.map((item) =>
-                        <li key={item.id}>
-                            {item.id} :
-                            {item.todoTask}
-                        </li>)
-                }
-            </ul>
+            <TodoList
+                setTodos={setTodos}
+                todos={todos}
+            />
         </div>
   );
 }
