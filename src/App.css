@@ -43,6 +43,9 @@ ul>li{
 ul button{
   width: 25px;
   height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 ul>li>p{
   width:100%;

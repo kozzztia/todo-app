@@ -11,6 +11,8 @@ const TodoItem = ({todos, setTodos ,task ,item , keys}:todoItemType) => {
             <TodoText
                 text ={item.todoTask}
                 setTodos={setTodos}
+                todos={todos}
+                id={item.id}
             />
             <button
                 style={{backgroundColor: "green"}}

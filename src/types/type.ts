@@ -18,6 +18,8 @@ export type todoItemType ={
     task:string;
 }
 export type todoTextType={
+    id:number,
+    todos : todoType[] | [],
     text: string,
     setTodos: React.Dispatch<React.SetStateAction<[] | todoType[]>>,
 }

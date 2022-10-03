@@ -7,7 +7,8 @@ import TodoList from "./components/TodoList";
 const  App:FC = () => {
 
     const [task , setTask] = useState<string>("")
-    const [todos , setTodos] = useState<todoType[] | []>([])
+    const [todos , setTodos] = useState<todoType[] | []>([{id:1,todoTask:"learn",done:true},
+        {id:2,todoTask:"learnMore",done:true},{id:3,todoTask:"learn More More...",done:true}])
   return (
         <div className="App">
             <form className="header"
