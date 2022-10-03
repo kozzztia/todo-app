@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import {todoItemType} from "../types/type";
+import TodoText from "./TodoText";
 
 const TodoItem = ({todos, setTodos ,task ,item , keys}:todoItemType) => {
     return (
         <li key={keys}
             style={task === item.todoTask?{textDecoration:"underline red"}:{textDecoration:"none"}}
         >
-            <p>{item.id} :{item.todoTask}</p>
+            {item.id + ':'}
+            <TodoText
+                text ={item.todoTask}
+                setTodos={setTodos}
+            />
             <button
+                style={{backgroundColor: "green"}}
                 disabled = {task === item.todoTask }
                 onClick={()=>{
                     setTodos(todos.map(todo => todo.id===item.id?
@@ -17,6 +23,7 @@ const TodoItem = ({todos, setTodos ,task ,item , keys}:todoItemType) => {
             >V</button>
 
             <button
+                style={{backgroundColor: "red"}}
                 disabled = {task === item.todoTask || !item.done}
                 onClick={()=>{
                     setTodos(todos.filter(filteredItem => filteredItem.id !== item.id))
