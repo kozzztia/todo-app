@@ -6,6 +6,7 @@ export type todoType = {
     done : boolean,
 }
 export type todoListTypes={
-    todos : todoType[] | []
-    setTodos : React.Dispatch<React.SetStateAction<[] | todoType[]>>
+    task: string,
+    todos : todoType[] | [],
+    setTodos : React.Dispatch<React.SetStateAction<[] | todoType[]>>,
 }

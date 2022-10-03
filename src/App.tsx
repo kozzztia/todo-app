@@ -8,9 +8,6 @@ const  App:FC = () => {
 
     const [task , setTask] = useState<string>("")
     const [todos , setTodos] = useState<todoType[] | []>([])
-    useEffect(()=>{
-        console.log(todos)
-    },[todos])
   return (
         <div className="App">
             <form className="header"
@@ -28,12 +25,15 @@ const  App:FC = () => {
                    value={task}
                 />
                 <button
-                    disabled={task.length<5}
+                    disabled={
+                        task.length<3||todos.some(item => item.todoTask === task)
+                }
                     type="submit">
                     add
                 </button>
             </form>
             <TodoList
+                task={task}
                 setTodos={setTodos}
                 todos={todos}
             />
