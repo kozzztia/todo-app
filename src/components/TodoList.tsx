@@ -1,27 +1,24 @@
 import React from 'react';
-import {todoListTypes, todoType} from "../types/type";
+import {todoListTypes} from "../types/type";
+import TodoItem from "./TodoItem";
 
-const TodoList = ({todos,setTodos ,task }:todoListTypes) => {
+const TodoList = ({todos, setTodos ,task}:todoListTypes) => {
+
     return (
         <ul className="todoList"
         >
             {
                 todos.length!==0?todos.map((item) =>
-                    <li key={item.id}
-                        style={task === item.todoTask?{color:"red"}:{color:"green"}}
-                    >
-                        {item.id} :
-                        {item.todoTask}
-                        <button
-                            disabled = {task === item.todoTask}
-                            onClick={()=>{
-                                setTodos(todos.filter(filteredItem => filteredItem.id !== item.id))
-                            }}
-
-                        >done</button>
-                    </li>)
+                    <TodoItem
+                        keys={item.id}
+                        item={item}
+                        setTodos={setTodos}
+                        todos={todos}
+                        task={task}
+                    />
+                    )
                     :
-                    <li key={1}>Empty to do list, now</li>
+                    <li key={0}>todoList is empty, now</li>
 
             }
         </ul>

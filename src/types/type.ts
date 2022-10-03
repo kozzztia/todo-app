@@ -10,3 +10,10 @@ export type todoListTypes={
     todos : todoType[] | [],
     setTodos : React.Dispatch<React.SetStateAction<[] | todoType[]>>,
 }
+export type todoItemType ={
+    keys:number,
+    item:todoType,
+    setTodos: React.Dispatch<React.SetStateAction<[] | todoType[]>>,
+    todos: todoType[] | [],
+    task:string;
+}
